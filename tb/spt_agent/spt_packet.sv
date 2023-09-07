@@ -59,12 +59,12 @@ class spt_packet extends uvm_sequence_item;
 		else
   			tailer_err == 1'b0;	
 	}
-	
+
 	constraint header_cons{
 		if(header_err==1)
 			header != 16'h55d5;
 		else
-			header == 14'h55d5;
+			header == 16'h55d5;
 	}
 
 	constraint payload_cons{
@@ -96,18 +96,18 @@ class spt_packet extends uvm_sequence_item;
 	endfunction
 	
 	function void do_pack(uvm_packer packer);
+		bit[15:0] tailer_result;	
 		super.do_pack(packer);
-		bit[15:0] tailer_result;
-		
+
 		pkt_data = new[pkt_len];
 		pkt_data[0] = header;
-		pkt_data[1:pkt_len-1] = payload;
 		tailer_result = tailer_clc(payload);
 		if(tailer_err == 1)
 			randomize(tailer)with{tailer != tailer_result;};
 		else
 			tailer_result = tailer_result;
-		pkt_data[pkt_len-1:pkt_len] = tailer_result;
+		foreach(payload[i])
+			pkt_data[i+1] = payload[i];
 	endfunction:do_pack
 
 	function void do_unpack(uvm_packer packer);

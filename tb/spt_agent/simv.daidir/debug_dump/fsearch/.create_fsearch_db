@@ -1,0 +1,9 @@
+#!/bin/sh -h 
+PYTHONHOME=/usr/Synopsys/vcs/Q-2020.03-SP2-7/etc/search/pyh
+export PYTHONHOME
+PYTHONPATH=/usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/pylib27
+export PYTHONPATH
+LD_LIBRARY_PATH=/usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib:/usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/pylib27
+export LD_LIBRARY_PATH
+/usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/bin/vcsfind_create_index.exe  -z  "/home/autumn/ic_project/ppu/ppu/tb/spt_agent/simv.daidir/debug_dump/fsearch/./idents_VVdlRV.xml.gz" "/home/autumn/ic_project/ppu/ppu/tb/spt_agent/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" -o "/home/autumn/ic_project/ppu/ppu/tb/spt_agent/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+\mv "/home/autumn/ic_project/ppu/ppu/tb/spt_agent/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/home/autumn/ic_project/ppu/ppu/tb/spt_agent/simv.daidir/debug_dump/fsearch/fsearch.db"
