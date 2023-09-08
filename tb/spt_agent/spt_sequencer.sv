@@ -9,5 +9,7 @@ class spt_sequencer extends uvm_sequencer;
 endclass
 
 function spt_sequencer::new(string name, uvm_component parent);
+	super.new(name, parent);
+	`uvm_info(get_full_name(), "spt_sequencer has been created!", UVM_LOW)
 endfunction
 `endif

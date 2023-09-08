@@ -103,7 +103,7 @@ class spt_packet extends uvm_sequence_item;
 		pkt_data[0] = header;
 		tailer_result = tailer_clc(payload);
 		if(tailer_err == 1)
-			randomize(tailer)with{tailer != tailer_result;};
+			randomize(tailer) with {tailer != tailer_result;};
 		else
 			tailer_result = tailer_result;
 		foreach(payload[i])
