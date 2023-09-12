@@ -26,7 +26,7 @@ task spt_rx_monitor::run_phase(uvm_phase phase);
 	
 	spt_packet tr;//monitor interface data and sent transaction lever data to rm
 	while(1)begin
-		tr = spt_packet::type_id::create("tr");		//"get_next_item"
+		tr = new("tr");		//"get_next_item"
 		this.collect_one_pkt(tr);//callback
 		ap.write(tr);//"item_done()"
 	end
@@ -46,7 +46,7 @@ function void spt_rx_monitor::collect_one_pkt(spt_packet tr);
 		@(posedeg vif.clk100m);
 	end
 	tr.pkt_data = new[collect_data.size];//dynamic
-	for(int i=0; i<collect_data; i++)begin
+	for(int i=0; i<collect_data.size; i++)begin
 		tr.payload[i].push_back(collect_data[i]);//real interface data only pkt_data
 	end
 	

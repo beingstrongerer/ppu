@@ -35,12 +35,13 @@ endtask
 function void spt_tx_monitor::collect_one_pkt(spt_packet tr);
 	
 	bit[15:0] collect_data[$];//collect interface data and store in this queue thensend to transaction level data "tr"
-	
+	//等待采集信号
 	while(1)begin
 		@(posedeg vif.clk100m);
 		if(vif.vld_in)
-			break	
+			break;	
 	end
+	//开始采集
 	while(vif.vld_in)begin
 		collect_data.push_back(vif.data_in);
 		@(posedeg vif.clk100m);

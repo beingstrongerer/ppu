@@ -93,11 +93,12 @@ class spt_packet extends uvm_sequence_item;
 			tailer_clc = sum_16;
 		else
 			tailer_clc = ~sum_16;
+
 	endfunction
 	
-	function void do_pack(uvm_packer packer);
+	function void do_pack();
+
 		bit[15:0] tailer_result;	
-		super.do_pack(packer);
 
 		pkt_data = new[pkt_len];
 		pkt_data[0] = header;
@@ -108,10 +109,17 @@ class spt_packet extends uvm_sequence_item;
 			tailer_result = tailer_result;
 		foreach(payload[i])
 			pkt_data[i+1] = payload[i];
+
 	endfunction:do_pack
 
-	function void do_unpack(uvm_packer packer);
-		super.do_unpack(packer);
+	function void do_unpack();
+		pkt_len = pkt_data.size;
+		header = pkt_data[0];
+		tailer = pkt_data[pkt_len-1];
+		foreach(pkt_data[i])
+			payload.push_back(pkt_data[i]);
+		payload.pop_front;
+		payload.pop_back;
 	endfunction:do_unpack
 
 	function void pre_randomize();

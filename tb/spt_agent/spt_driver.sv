@@ -20,10 +20,10 @@ endfunction
 
 task spt_driver::run_phase(uvm_phase phase);
 
-	@(vif.rst_core_n);
-	#100ns;
-	this.do_reset();
-	
+	vif.vld_in <= 1'b0;
+	vif.data_in <= 32'h0;
+	while(!vif.rst_core_n)
+		@(posedge vif.clk_100m);	
 	while(1) begin //until sequence drop_objection
 		seq_item_port.get_next_item(req);//req is spt_packet class since #(REQ)	
 		this.drive_one_pkt(req);	
@@ -43,10 +43,8 @@ task spt_driver::do_reset();
 endtask
 
 task spt_driver::drive_one_pkt(REQ req);
-	
-	uvm_packer packer;
 
-	req.do_pack(packer);
+	req.do_pack();
 	`uvm_info(get_full_name(), "one spt_packet begins to send...", UVM_HIGH);
 	for(int i=0; i<req.pkt_len; i++)begin
 		@(posedge vif.clk100m);
