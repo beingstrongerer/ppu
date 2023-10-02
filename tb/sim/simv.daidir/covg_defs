@@ -1,0 +1,108 @@
+global coverage_group 0 $unit::dtp_cov::cpuif_core_test_default_value __coverage_dtp_cov.cpuif_core_test_default_value unused_dtp_cov_cpuif_core_test_default_value_loop_label $unit 0 1 0 1 $unit::../../rtl/cpu_if.v::../../rtl/crg.v...@3037757498 0  ( 0 
+)
+ 1 1
+ 56 /home/autumn/ic_project/ppu/ppu/tb/sim/../env/dtp_cov.sv
+ 4 0 0 0 1 0 0 0 0  1
+0
+0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+0
+0
+0
+64
+0
+ 0
+
+3
+0
+1
+0
+ 4 addr 5 0 0 0 0 0 138 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn 138 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 2 16 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 3 cmd 8 0 0 0 0 0 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_1 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 2 1 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_0
+ 0
+ 0
+ 0
+ 0
+ 1 1 1 0 0 1 1 4 read 10 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_2 0 0 0 0 0 0 0
+ 0
+
+ 4 data 12 0 0 0 0 0 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_3 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_3 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 2 32 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 13 addrXcmdXdata 0 15 0 0 0 0 0 3 0 1 2 -1 0 0 0
+ 0
+ 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2 1 1 0 0 -1 0 0 1 1 10 core_test0 16 0 1 0 1 3 1 0 0 0 1 1 1 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_4 0 0 0 0 0 0 0
+ 0 0 0 0 1 0 2 0 1 1 1 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_5 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 0 0 -1 0 0 1 1 10 core_test1 17 0 1 0 1 3 1 0 0 0 1 1 1 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_6 0 0 0 0 0 0 0
+ 0 0 0 0 1 0 2 0 1 1 1 140 _vcs_unit__3037757498_dtp_cov_11_0::_vcs_unit__3037757498_dtp_cov_11_0__vcs_unit__3037757498_dtp_cov_11_0_cpuif_core_test_default_value_fn_7 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+
+end_coverage_group

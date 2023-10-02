@@ -1,4 +1,4 @@
-interface spt_interface(input clk100m,
+interface spt_interface(input clk_100m,
 						input rst_core_n);
 
 	logic 		 vld_in;

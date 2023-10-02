@@ -9,7 +9,7 @@ class dtp_scoreboard extends uvm_scoreboard;
 
 endclass
 
-function dtp_scoreboard::new(string name = "dtp_scoreboard", uvm_component parent = null);
+function dtp_scoreboard::new(string name, uvm_component parent);
 	super.new(name, parent);
 endfunction
 
@@ -20,29 +20,19 @@ function void dtp_scoreboard::build_phase(uvm_phase phase);
 endfunction
 
 task dtp_scoreboard::run_phase(uvm_phase phase);
-	super.run_phase(phase);
-	spt_packet get_export, get_mon;
+	spt_packet get_expect;
+	spt_packet get_mon;//中间变量，用来接收来自port的数据
 	int err = 0;
-	fork//两个进程
-		while(1) begin//rm进程
-			exp_port.get(get_export);
-			expect_pkts.push_back(get_export);
-		end
-		
-		while(1) begin//mon进程
-			mon_port.get(get_mon);
-			if(expect_pkts.size() > 0) begin//动态数组用size？队列用size()?
-				foreach(get_mon.payload[i])begin
-					if(get_mon.payload[i] != get_expect.payload[i])
-						err++;
-				end
-				if(err!=0)
-					`uvm_error(get_type_name(), $sformatf("compare fail,the total errors is %d", err))
-				else
-					`uvm_info(get_type_name(), "compare success", UVM_HIGH)	
-			end
-			else
-				`uvm_error(get_type_name(), "rm packet is not ready!")
-		end
-	join
+	
+	while(1) begin//mon进程			mon_port.get(get_mon);//得到payload
+		exp_port.get(get_expect);//如果是异常包，则不会发送给scoreboard
+		mon_port.get(get_mon);//得到payload
+		foreach(get_mon.payload[i])
+			if(get_mon.payload[i] != get_expect.payload[i])
+				err++;
+		if(err!=0)
+			`uvm_error(get_type_name(), $sformatf("compare fail,the total errors is %d", err))
+		else
+			`uvm_info(get_type_name(), "compare success", UVM_HIGH)	
+	end
 endtask

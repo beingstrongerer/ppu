@@ -1,0 +1,99 @@
+URG Version Q-2020.03-SP2-7 Copyright (c) 1991-2020 by Synopsys Inc.
+Command line: /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/bin/urg1 -par_check Temporary_URG_scripts_109785_localhost.localdomain_Mon_Oct__2_06:53:30_2023/ -full64 -dir simv.vdb -dbname merged -report urgReport
+
+--- Stack trace follows:
+[New LWP 110089]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+0x00002afa5fb849fd in nanosleep () from /lib64/libc.so.6
+
+Thread 2 (Thread 0x2afa6430e700 (LWP 110089)):
+#0  0x00002afa5fb84659 in waitpid () from /lib64/libc.so.6
+#1  0x00002afa5fb01f62 in do_system () from /lib64/libc.so.6
+#2  0x00002afa5fb02311 in system () from /lib64/libc.so.6
+#3  0x00002afa5d9682fb in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e639d2928478c79b3f673f99203bcf8be64600612100082236bffb2007f1e0ef9 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/liberrorinf.so
+#4  0x00002afa5d968911 in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e81c34e9ac4c8988ef4a6e067b3aa9271e9f15440f9e8f69ebc77e2fd65860faa () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/liberrorinf.so
+#5  0x00002afa5d969eba in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313efba706aab251478fa49e66610e453774633a6c152e7ef778f2202cda681f3d4e () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/liberrorinf.so
+#6  0x00002afa5d9626d2 in SNPSle_d35ca1ff70d465c2b9b1a72eee90a50630165806651fae96eee2bdb18305df1f () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/liberrorinf.so
+#7  0x00002afa5d967a39 in SNPSle_a616a49d50c972830e5a9fc3c8e619d38b78b0950f1d2e37 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/liberrorinf.so
+#8  <signal handler called>
+#9  0x00002afa5f38c9a4 in mem_free () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libsnpsmalloc.so
+#10 0x00002afa5f368145 in snpsCheckFreeFunc () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libsnpsmalloc.so
+#11 0x00002afa5e710694 in SNPSle_540905a7b1b27611 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#12 0x00002afa5e710fda in SNPSle_9ff9b2dce8f1fde9 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#13 0x00002afa5e70f0a8 in SNPSle_36c2d46996c96605 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#14 0x00002afa5e70f56d in SNPSle_2c2186f0f2f42415 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#15 0x00002afa5e70f683 in SNPSle_126d17af453e054a () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#16 0x00002afa5f8aaea5 in start_thread () from /lib64/libpthread.so.0
+#17 0x00002afa5fbbdb0d in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x2afa5cf12cc0 (LWP 109991)):
+#0  0x00002afa5fb849fd in nanosleep () from /lib64/libc.so.6
+#1  0x00002afa5fb84894 in sleep () from /lib64/libc.so.6
+#2  0x00002afa5e4af916 in SNPSle_95ae9cc2e78cc668673c60b8d88c4908 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#3  0x00002afa5e4afab9 in SNPSle_92de4d0d4cf0d6931bc37e8d42a01d93 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#4  0x00002afa5e4ade2a in SNPSle_b76ef993ee82b3d58a5cadddbec8b67c () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#5  0x00002afa5e4ae0cc in SNPSle_f28f24b8c84ac8f6e02e0b03bcd33aa8 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#6  0x00002afa5e499591 in SNPSle_5e54eaa1df739f6ed4c1ff24a0986ee6 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#7  0x00002afa5e4997ac in SNPSle_058778405d2a6c04ddd18247ba7f440f () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#8  0x00002afa5e494332 in SNPSle_e376be325e61b493d6bd988d8077bacc () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#9  0x00002afa5e49476f in SNPSle_a10369bdf7c5916ddd6866ce7e2e861c () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#10 0x00002afa5e494f41 in SNPSle_00b1acee80c770570cd75f9efbe24cca () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#11 0x00002afa5e4959cd in SNPSle_ba11b1edbd04051f5bb81b1861cdf84a () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#12 0x00002afa5e484162 in SNPSle_2e65c0794628fc5af60953149776c29b () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#13 0x00002afa5e32b38d in SNPSle_45bacbc75485abed52ca9d2d770b39292a6b46dfb6b113401b29144988c2b793 () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#14 0x00002afa5e32b736 in SNPSle_227885e0c09a380609290a1d21a1f4252f13d83b176aca6e () from /usr/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/libucapi.so
+#15 0x000000000050a6c4 in main ()
+
+Process VmPeak: 262836 kb, VmSize: 199384 kb
+System Free Memory: 2364636 kb, System Free Swap: 8258556 kb
+No context available
+

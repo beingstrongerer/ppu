@@ -1,6 +1,6 @@
 `ifndef SPT_SEQUENCER_SV
 `define SPT_SEQUENCER_SV
-class spt_sequencer extends uvm_sequencer;
+class spt_sequencer extends uvm_sequencer #(spt_packet);
 	
 	`uvm_component_utils(spt_sequencer)
 

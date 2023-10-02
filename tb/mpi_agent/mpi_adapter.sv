@@ -6,16 +6,17 @@ class mpi_adapter extends uvm_reg_adapter;
 	function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
 		mpi_xaction tr;
 		tr = new("tr");
-		tr.cmd = (tr.kind == UVM_READ) ? 1'b0 : 1'b1;
+		tr.randomize();
+		tr.cmd = (rw.kind == UVM_READ) ? 1'b1 : 1'b0;
 		tr.cpu_addr = rw.addr;
-		tr.cpu_data = rw.data;
+	    tr.cpu_data = rw.data;
 		return tr;
 	endfunction
 	function void bus2reg(uvm_sequence_item bus_item, ref uvm_reg_bus_op rw);
 		mpi_xaction tr;
 		if(!$cast(tr, bus_item))
 			`uvm_error(get_type_name(), "In the bus2reg, the transaction is fail")
-		rw.kind = (tr.cmd == 1'b0) ? UVM_READ : UVM_WRITE;//如果使用WRITE或者READ是否可行？
+		rw.kind = (tr.cmd == 1'b0) ? UVM_WRITE : UVM_READ;//如果使用WRITE或者READ是否可行？
 		rw.addr = tr.cpu_addr;
 		rw.data = tr.cpu_data;
 		rw.status = UVM_IS_OK;

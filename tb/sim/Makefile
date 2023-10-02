@@ -1,24 +1,45 @@
+############# user variables #############
+##########################################
+TB=harness
+SEED=1
+TESTNAME=tc_sanity
+
+######### environmental variables ########
+##########################################
+COMP = vcs -full64 -debug_acc+dmptf\
+	   -ntb_opts uvm-1.2\
+	   -sverilog\
+	   -debug_acess+all\
+	   -timescale=1ns/1ns\
+	   -f filelist.f\
+	   -l com.log\
+	   -cm line+tgl+branch\
+	   -cm_name mpi_test_name1\
+	   #-R 
+	   
+RUN = ./simv\
+	  -l sim.log\
+	  +ntb_random_seed=$(SEED)\
+	  +UVM_TESTNAME=$(TESTNAME)\
+	  #+UVM_VERBOSITY=UVM_HIGH
+
+
+
 #-------------------------------------------------------------------------------------------------------
-comp  : clean vcs sim verdi
-#-------------------------------------------------------------------------------------------------------
-vcs   :
-	vcs     \
-              -timescale=1ns/1ps \
-              -full64  +vc  +v2k  -sverilog  -debug_acc+all \
-			  +incdir+$(UVM_HOME)/src $(UVM_HOME)/src/uvm_pkg.sv \
-			  -P $(VERDI_HOME)/share/PLI/VCS/LINUXAMD64/novas.tab \
-			  $(VERDI_HOME)/share/PLI/VCS/LINUXAMD64/pli.a \
-			  $(UVM_HOME)/src/dpi/uvm_dpi.cc -CFLAGS -DVCS \
-			  -f filelist.f &
-#-------------------------------------------------------------------------------------------------------
+all  : 	clean vcs sim &
+vcs:
+	$(COMP) -top $(TB) -R
 sim :
-	./simv -l sim.log & #sim指令定义为执行simv文件，然后输出sim.log
-#------------------------------------------------------------------------------------------------------
+	$(RUN)
+
 verdi  :
-	verdi -f filelist.f -ssf tb.fsdb -nologo &
-#-------------------------------------------------------------------------------------------------------
+	verdi -f filelist.f -ssf ppu.fsdb -nologo&
+	
+
+cov:
+	urg -full64 -format both -dir $(TB).simv.vdb
 clean  :
-	 rm  -rf  *~  core  csrc  simv*  vc_hdrs.h  ucli.key  urg* *.log  novas.* *.fsdb* verdiLog  64* DVEfiles *.vpd
+	 rm  -rf  *~  core  csrc  simv*  vc_hdrs.h  ucli.key  urg* *.log  novas.* *.fsdb* verdiLog  64* DVEfiles *.vpd *.vdb
 #-------------------------------------------------------------------------------------------------------
 # 	vcs -cpp g++-4.8 -cc gcc-4.8
 # -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-neede

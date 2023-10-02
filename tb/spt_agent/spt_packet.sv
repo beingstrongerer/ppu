@@ -4,7 +4,7 @@ import uvm_pkg::*;
 class spt_packet extends uvm_sequence_item;
 	
 	rand bit[15:0] header;
-	rand bit[15:0] payload[$];
+	rand bit[15:0] payload[$];//这里的值本来就是随机的
 	rand bit[15:0] tailer;
 
 	rand int       pkt_len;
@@ -39,7 +39,7 @@ class spt_packet extends uvm_sequence_item;
 		if(payload_type == 0)//normal packet
 			pkt_len inside{[22:602]};
 		else if(payload_type == 1)//glitch packet
-			pkt_len inside{[1:2]};
+			pkt_len inside{[1:2]};//长度为1，表示只有头域没有负载与尾域
 		else if(payload_type == 2)//short packet
 			pkt_len inside{[3:21]};
 		else//long packet
@@ -78,7 +78,7 @@ class spt_packet extends uvm_sequence_item;
 		super.new(name);
 	endfunction
 	
-	function bit[15:0] tailer_clc(bit[15:0] payload[]);
+	function bit[15:0] tailer_clc();
 		
 		bit[15:0] sum_16;
 		bit[16:0] sum_17;
@@ -86,41 +86,41 @@ class spt_packet extends uvm_sequence_item;
 		sum_16 = 0;
 		sum_17 = 0;
 		foreach(payload[i]) begin
-			sum_17 = payload[i] + sum_16;
+			sum_17 = this.payload[i] + sum_16;
 			sum_16 = sum_17[16] + sum_17[15:0];
 		end
 		if(sum_16 == 16'hFFFF)
-			tailer_clc = sum_16;
+			return sum_16;
 		else
-			tailer_clc = ~sum_16;
+			return ~sum_16;
 
 	endfunction
 	
-	function void do_pack();
+	function void pack();
 
 		bit[15:0] tailer_result;	
 
 		pkt_data = new[pkt_len];
 		pkt_data[0] = header;
-		tailer_result = tailer_clc(payload);
-		if(tailer_err == 1)
+		tailer_result = tailer_clc();
+		if(tailer_err == 1)begin
 			randomize(tailer) with {tailer != tailer_result;};
+			pkt_data[pkt_len-1] = pkt_len>1?tailer:header;
+		end
 		else
-			tailer_result = tailer_result;
+			pkt_data[pkt_len-1] = pkt_len>1?tailer_result:header;
 		foreach(payload[i])
 			pkt_data[i+1] = payload[i];
 
-	endfunction:do_pack
+	endfunction:pack
 
-	function void do_unpack();
+	function void unpack();
 		pkt_len = pkt_data.size;
 		header = pkt_data[0];
 		tailer = pkt_data[pkt_len-1];
-		foreach(pkt_data[i])
+		for(int i=1; i<pkt_data.size-1; i++)
 			payload.push_back(pkt_data[i]);
-		payload.pop_front;
-		payload.pop_back;
-	endfunction:do_unpack
+	endfunction:unpack
 
 	function void pre_randomize();
 	endfunction:pre_randomize

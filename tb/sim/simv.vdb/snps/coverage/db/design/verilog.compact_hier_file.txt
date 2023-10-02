@@ -1,0 +1,3 @@
+\$unit::../../rtl/cpu_if.v::../../rtl/crg.v...@3037757498 00
+uvm_custom_install_verdi_recording2730
+harness2730
